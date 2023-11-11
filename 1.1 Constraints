@@ -1,0 +1,71 @@
+------------------------------------------------------------------------------------------
+
+****************************************** Constraints :---- **********************
+
+create table 
+insert records
+SQL Create Constraints and syntax 
+PRIMARY KEY
+FOREIGN KEY ❌❌
+NOT NUL
+UNIQUE KEY
+DEFAULT 
+CHECK 
+
+in sql server make query
+------------------------------------------------------------------------------------------
+👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+
+Certainly! Below is an example of how you can create a table, insert records, and apply various constraints in SQL Server:
+
+sql
+Copy code
+
+
+-- Create a table with constraints
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DepartmentID INT,
+    Salary DECIMAL(10, 2) DEFAULT 50000.00,
+    CONSTRAINT FK_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID),
+    CONSTRAINT CHK_Salary CHECK (Salary >= 0)
+);
+
+
+
+------------------------------------------------------------------------------------------
+
+
+
+Foregin Key Code :---------------------------------👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+
+
+-- Create a table for Departments
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(50) UNIQUE
+);
+
+-- Insert records into Departments
+INSERT INTO Departments (DepartmentID, DepartmentName)
+VALUES (1, 'IT'),
+       (2, 'HR'),
+       (3, 'Finance');
+
+-- Create a table for Employees with a FOREIGN KEY constraint
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DepartmentID INT,
+    Salary DECIMAL(10, 2),
+    CONSTRAINT FK_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+
+-- Insert records into Employees
+INSERT INTO Employees (EmployeeID, FirstName, LastName, DepartmentID, Salary)
+VALUES (1, 'John', 'Doe', 1, 60000.00),
+       (2, 'Jane', 'Smith', 2, 70000.00),
+       (3, 'Bob', 'Johnson', 1, 55000.00);

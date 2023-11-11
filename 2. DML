@@ -1,0 +1,41 @@
+----------------------------------------------2. DML  👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+
+create table 
+insert records
+update
+delete 
+
+Distinct keyword
+in sql server make query
+
+-------------------------------------------------------------------------------------------
+
+-- Create a table
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Age INT,
+    GPA DECIMAL(3, 2)
+);
+
+-- Insert records
+INSERT INTO Students (StudentID, FirstName, LastName, Age, GPA)
+VALUES (1, 'John', 'Doe', 20, 3.5),
+       (2, 'Jane', 'Smith', 22, 3.8),
+       (3, 'Bob', 'Johnson', 21, 3.2),
+       (4, 'Alice', 'Williams', 23, 3.9),
+       (5, 'Charlie', 'Brown', 20, 3.4);
+
+-- Update a record
+UPDATE Students
+SET Age = 24
+WHERE StudentID = 1;
+
+-- Delete a record
+DELETE FROM Students
+WHERE StudentID = 3;
+
+-- Retrieve distinct values from a column
+SELECT DISTINCT Age
+FROM Students;
